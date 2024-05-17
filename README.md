@@ -1,6 +1,7 @@
 # main-project
 Adding some comments!
 
+Everything is awesome!
 
 ## Getting started
 

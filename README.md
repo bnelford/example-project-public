@@ -1,6 +1,8 @@
 # main-project
 Adding some comments!
 
+Albert is awesome, and so is Brian!
+
 
 ## Getting started
 

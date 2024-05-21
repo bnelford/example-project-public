@@ -47,6 +47,6 @@ deploy:
     name: production
     url: https://github.com/bnelford/example-project-public
   only:
-    - master
+    - main
   when: manual
   allow_failure: false

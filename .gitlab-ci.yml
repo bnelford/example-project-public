@@ -2,10 +2,11 @@ stages:
   - lint
   - analyze
   - build
+  - deploy
 
 before_script:
   - apt-get update
-  - apt-get install -y cppcheck clang-tidy clang
+  - apt-get install -y cppcheck clang-tidy clang git
 
 lint:
   stage: lint
@@ -32,3 +33,20 @@ build:
   only:
     - merge_requests
     - branches
+
+deploy:
+  stage: deploy
+  script:
+    - git init
+    - git remote add origin https://github.com/bnelford/example-project-public.git
+    - git checkout -b deployment
+    - git add .
+    - git commit -m "Deploying code"
+    - git push -f origin deployment
+  environment:
+    name: production
+    url: https://github.com/bnelford/example-project-public
+  only:
+    - master
+  when: manual
+  allow_failure: false

@@ -40,7 +40,7 @@ deploy:
   - apt-get update
   - apt-get install -y git
   - git config --global user.email "nelfordbc@gmail.com"
-  - git config --global user.name "Beau Nelford"
+  - git config --global user.name "bnelford"
   script:
     - git init
     - git remote set-url origin https://github.com/bnelford/example-project-public.git

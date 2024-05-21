@@ -1,6 +1,7 @@
 stages:
   - lint
   - analyze
+  - build
 
 before_script:
   - apt-get update
@@ -24,7 +25,6 @@ analyze:
     - merge_requests
     - branches
 
-# Optionally, you can add a build stage to ensure the code compiles
 build:
   stage: build
   script:

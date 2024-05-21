@@ -1,0 +1,34 @@
+stages:
+  - lint
+  - analyze
+
+before_script:
+  - apt-get update
+  - apt-get install -y cppcheck clang-tidy clang
+
+lint:
+  stage: lint
+  script:
+    - cppcheck --enable=all --inconclusive --std=c99 --suppress=missingIncludeSystem hello.c
+  allow_failure: false
+  only:
+    - merge_requests
+    - branches
+
+analyze:
+  stage: analyze
+  script:
+    - clang-tidy hello.c -- -std=c99
+  allow_failure: false
+  only:
+    - merge_requests
+    - branches
+
+# Optionally, you can add a build stage to ensure the code compiles
+build:
+  stage: build
+  script:
+    - gcc -o hello hello.c
+  only:
+    - merge_requests
+    - branches

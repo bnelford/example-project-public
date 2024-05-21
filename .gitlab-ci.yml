@@ -42,14 +42,13 @@ deploy:
   - git config --global user.email "nelfordbc@gmail.com"
   - git config --global user.name "bnelford"
   script:
-    - git init
-    - git remote set-url origin https://github.com/bnelford/example-project-public.git
-    - git fetch origin
-    - git checkout -b deployment
-    - git reset --hard origin/main
-    - git add .
-    - git commit -m "Deploying code" || echo "No changes to commit"
-    - git push -f https://oauth2:${GITHUB_TOKEN}@github.com/bnelford/example-project-public.git deployment
+    # Clone the GitLab repository
+    - git clone https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git
+    - cd ${CI_PROJECT_NAME}
+    # Add GitHub as a remote
+    - git remote add github https://oauth2:${GITHUB_TOKEN}@github.com/bnelford/example-project-public.git
+    # Force push to the GitHub repository
+    - git push -f github main:main
   environment:
     name: production
     url: https://github.com/bnelford/example-project-public

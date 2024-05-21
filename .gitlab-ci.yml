@@ -39,8 +39,8 @@ deploy:
   before_script:
   - apt-get update
   - apt-get install -y git
-  - git config --global user.email "gitlab-ci@gitlab.com"
-  - git config --global user.name "Gitlab CI"
+  - git config --global user.email "nelfordbc@gmail.com"
+  - git config --global user.name "Beau Nelford"
   script:
     - git init
     - git remote set-url origin https://github.com/bnelford/example-project-public.git

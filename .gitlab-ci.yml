@@ -38,7 +38,7 @@ deploy:
   stage: deploy
   script:
     - git init
-    - git remote add origin https://github.com/bnelford/example-project-public.git
+    - git remote set-url origin https://github.com/bnelford/example-project-public.git
     - git checkout -b deployment
     - git add .
     - git commit -m "Deploying code"

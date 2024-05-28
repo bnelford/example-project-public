@@ -3,6 +3,8 @@ Adding some comments!
 
 Albert is awesome, and so is Brian!
 
+And so is Beau!
+
 
 ## Getting started
 
